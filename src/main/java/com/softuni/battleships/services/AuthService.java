@@ -58,4 +58,11 @@ public class AuthService {
 
         return true;
     }
+
+    public void logout() {
+        this.userSession.logout();
+    }
+    public boolean isLoggedIn(){
+        return userSession.getId() >0;
+    }
 }

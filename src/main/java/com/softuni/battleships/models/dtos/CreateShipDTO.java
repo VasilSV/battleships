@@ -22,11 +22,11 @@ public class CreateShipDTO {
     @PastOrPresent
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate created;
-
     @Positive
     private int category = -1;
 
-    public CreateShipDTO() {}
+    public CreateShipDTO() {
+    }
 
     public String getName() {
         return name;
