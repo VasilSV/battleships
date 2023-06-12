@@ -8,11 +8,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
 @Controller
+
 public class AuthController {
     private AuthService authService;
 
@@ -20,8 +22,8 @@ public class AuthController {
         this.authService = authService;
     }
 
-//4. правим модели за страниците ...
-    @ModelAttribute("registrationDTO")
+//TODO 4. правим модели за страниците ...
+    @ModelAttribute("userRegistrationDTO")
     public UserRegistrationDTO initRegistrationDTO() {
         return new UserRegistrationDTO();
     }
@@ -30,7 +32,8 @@ public class AuthController {
     public LoginDTO initLoginDTO() {
         return new LoginDTO();
     }
-// 1. регистрация
+
+// TODO 1. регистрация
     @GetMapping("/register")
     public String register() {
         //секюрити
@@ -50,9 +53,9 @@ public class AuthController {
         }
 
         if (bindingResult.hasErrors() || !this.authService.register(registrationDTO)) {
-            redirectAttributes.addFlashAttribute("registrationDTO", registrationDTO);
+            redirectAttributes.addFlashAttribute("userRegistrationDTO", registrationDTO);
             redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.registrationDTO", bindingResult);
+                    "org.springframework.validation.BindingResult.userRegistrationDTO", bindingResult);
 
             return "redirect:/register";
         }
@@ -82,7 +85,7 @@ public class AuthController {
 
             return "redirect:/login";
         }
-// 5. показваме ако има грешка в логина като правим boolean login  в сървиса
+//TODO 5. показваме ако има грешка в логина като правим boolean login  в сървиса
         // ако не го правим слагаме горе в if authService както в регистер ...
         if (!this.authService.login(loginDTO)) {
             redirectAttributes.addFlashAttribute("loginDTO", loginDTO);
@@ -91,7 +94,7 @@ public class AuthController {
             return "redirect:/login";
         }
 
-        return "redirect:/home";
+        return "/home";
     }
     @GetMapping("/logout")
     public String logout(){
