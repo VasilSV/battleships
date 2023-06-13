@@ -24,11 +24,13 @@ public class UserRegistrationDTO {
     @NotBlank
     private String confirmPassword;
 
-    public UserRegistrationDTO() {}
+    public UserRegistrationDTO() {
+    }
 
     public String getUsername() {
         return username;
     }
+
 
     public void setUsername(String username) {
         this.username = username;
