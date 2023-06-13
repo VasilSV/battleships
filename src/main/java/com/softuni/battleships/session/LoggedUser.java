@@ -3,7 +3,7 @@ package com.softuni.battleships.session;
 import com.softuni.battleships.models.User;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
-
+//TODO 3. ПРАВИМ ЛОГНАТ ЮСЕР
 @Component
 @SessionScope
 public class LoggedUser {

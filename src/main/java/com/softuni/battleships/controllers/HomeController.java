@@ -37,7 +37,7 @@ public class HomeController {
         if (this.authService.isLoggedIn()){
             return "redirect:/home";
         }
-        return "index";
+        return "redirect:/index";
     }
 
     @GetMapping("/home")
@@ -55,6 +55,6 @@ public class HomeController {
         model.addAttribute("enemyShips", enemyShips);
         model.addAttribute("sortedShips", sortedShips);
 
-        return "home";
+        return "redirect:/home";
     }
 }
