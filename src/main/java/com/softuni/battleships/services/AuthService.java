@@ -19,7 +19,7 @@ public class AuthService {
         this.userRepository = userRepository;
         this.userSession = userSession;
     }
-//2. проверка паролата
+// todo 3. проверка паролата
     public boolean register(UserRegistrationDTO registrationDTO) {
         if (!registrationDTO.getPassword().equals(registrationDTO.getConfirmPassword())) {
             return false;
@@ -53,7 +53,7 @@ public class AuthService {
         if (user.isEmpty()) {
             return false;
         }
-//6. правим Sesion с LoggedUser
+//todo 6. правим Sesion с LoggedUser
         this.userSession.login(user.get());
 
         return true;
