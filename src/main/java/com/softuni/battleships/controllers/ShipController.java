@@ -25,7 +25,7 @@ public class ShipController {
     }
 
     @ModelAttribute("createShipDTO")
-    public CreateShipDTO initCreateShipDTO() {
+    public CreateShipDTO createShipDTO() {
         return new CreateShipDTO();
     }
 
@@ -35,7 +35,7 @@ public class ShipController {
             return "redirect:/";
         }
 
-        return "ship-add";
+        return "redirect:ships/add";
     }
 
     @PostMapping("/ships/add")
